@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 //   res.send("Hello World!");
 // });
 
-// app.use("/api", [helloRouter]);
+app.use("/api", [helloRouter]);
 app.get("/:id", (req, res) => {
   console.log(req.params);
   res.send("good id");
