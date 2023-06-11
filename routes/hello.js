@@ -40,12 +40,14 @@ router.get("/hello", (req, res) => {
 });
 router.get("/hello/:helloId", (req, res) => {
   const { helloId } = req.params;
-  console.log(Number(helloId));
-  for (const helloSel of hello) {
-    if (Number(helloId) === helloSel.helloId) {
-      result = helloSel;
-    }
-  }
+  // let result = null;
+  // for (const helloSel of hello) {
+  //   if (Number(helloId) === helloSel.helloId) {
+  //     result = helloSel;
+  //   }
+  // }
+  const helloIdNum = Number(helloId);
+  const [result] = hello.filter((i) => helloIdNum === i.helloId);
 
   res.status(200).json({ detail: result });
 });
